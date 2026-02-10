@@ -119,7 +119,81 @@ OpenClaw的核心价值在于将AI从被动响应转变为主动执行，通过�
 - **挑战**：安全风险、技术门槛、稳定性问题
 - **机遇**：开源社区支持、技术创新空间、个性化需求增长
 
-## 9. 参考资料
+## 10. Excel处理Agent与Skills
+
+### 10.1 专门的Excel处理Agent程序
+
+#### 10.1.1 商业解决方案
+- **Excel-Pro**：一个AI驱动的数据分析平台，专门用于Excel文件分析和公式生成，提供AI-powered的数据分析能力。
+  - 网站：http://www.excel-pro.net/
+  - 功能：将Excel文件转化为可操作的洞察，提供数据可视化和分析功能。
+
+#### 10.1.2 开源项目
+目前没有找到专门针对Excel处理的开源Agent项目，但可以通过以下方式实现Excel处理：
+
+1. **通用Agent + Excel Skills**：使用通用Agent框架（如OpenClaw），结合Excel处理Skills来实现Excel分析功能。
+2. **自定义Agent**：基于现有Agent框架，开发专门的Excel处理模块。
+
+### 10.2 Excel处理相关Skills
+
+#### 10.2.1 Skills的概念
+- **定义**：Skills是AI的"工作交接大礼包"，包含操作手册/SOP和工具说明书。
+- **作用**：为AI提供专业化的知识、工作流程和工具集成，使其能够更高效地完成复杂任务。
+- **安装位置**：
+  - 当前项目/.claude/skills/（仅当前项目用）
+  - ~/.claude/skills/（所有项目都能用）
+
+#### 10.2.2 潜在的Excel处理Skills
+
+| Skill名称 | 功能描述 | 实现方式 |
+|----------|---------|----------|
+| Excel数据读取 | 读取Excel文件中的数据 | 使用pandas、openpyxl等库 |
+| Excel数据分析 | 分析Excel中的数据，生成统计信息 | 结合数据分析库实现 |
+| Excel图表生成 | 根据Excel数据生成图表 | 使用matplotlib、seaborn等库 |
+| Excel公式生成 | 根据需求生成Excel公式 | 基于规则和模板实现 |
+| Excel数据清洗 | 自动清洗Excel中的数据 | 实现数据清洗算法 |
+| Excel报表自动化 | 自动生成Excel报表 | 模板+数据填充 |
+
+### 10.3 技术实现方案
+
+#### 10.3.1 基于OpenClaw的实现
+- **核心思路**：利用OpenClaw的本地运行能力和硬件控制能力，结合Excel处理Skills来实现Excel分析功能。
+- **实现步骤**：
+  1. 部署OpenClaw到本地设备
+  2. 开发Excel处理Skills，包含各种Excel操作的函数
+  3. 通过聊天工具发送Excel分析指令
+  4. OpenClaw执行相应的Skills，处理Excel文件
+
+#### 10.3.2 技术栈选择
+- **后端**：Python（pandas、openpyxl等库）
+- **前端**：聊天工具界面（WhatsApp、Telegram等）
+- **AI模型**：大语言模型（如GPT、Claude等）
+
+### 10.4 优势与挑战
+
+#### 10.4.1 优势
+- **自动化**：减少人工Excel处理工作
+- **智能化**：AI驱动的分析提供更深入的洞察
+- **灵活性**：可根据具体需求定制功能
+- **可扩展性**：通过Skills机制不断扩展功能
+
+#### 10.4.2 挑战
+- **技术门槛**：需要一定的编程能力来开发和配置Skills
+- **功能成熟度**：Excel处理功能可能需要不断完善
+- **性能问题**：处理大型Excel文件时可能存在性能瓶颈
+- **准确性**：AI生成的分析结果需要人工验证
+
+### 10.5 结论
+
+虽然目前没有找到专门针对Excel处理的Agent程序和Skills，但可以通过以下方式实现Excel文件的智能分析：
+
+1. **使用商业解决方案**：如Excel-Pro等专门的Excel分析平台
+2. **基于通用Agent开发**：使用OpenClaw等通用Agent框架，结合Excel处理库开发专门的Skills
+3. **自定义开发**：基于现有技术栈，开发专门的Excel处理Agent
+
+随着AI技术的不断发展，相信未来会出现更多专门针对Excel处理的Agent程序和Skills，进一步提升Excel数据分析的效率和深度。
+
+## 11. 参考资料
 
 - [OpenClaw GitHub项目](https://github.com/openclaw/openclaw)
 - [从openclaw(原clawbot/moltbot)到企业数字员工](http://m.toutiao.com/group/7604430502682001947/)
@@ -129,3 +203,4 @@ OpenClaw的核心价值在于将AI从被动响应转变为主动执行，通过�
 - [OpenClaw(原ClawdBot)技术与应用解析](http://m.toutiao.com/group/7605051958012985902/)
 - [OpenClaw:火爆GitHub的开源"全能"AI助手，从部署到实战全指南](https://blog.csdn.net/qq_55109871/article/details/157653372)
 - [Sealos上部署OpenClaw全记录:从此告别在本地搭环境的噩梦](http://m.toutiao.com/group/7603367059954680346/)
+- [Excel-Pro | AI for Excel File Analysis, Formula Generation](http://www.excel-pro.net/)
